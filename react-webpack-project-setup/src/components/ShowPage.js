@@ -1,5 +1,6 @@
 import React from 'react'
 import axios from 'axios'
+import '../../src/style.scss'
 
 class ShowPage extends React.Component {
   constructor() {
@@ -11,10 +12,10 @@ class ShowPage extends React.Component {
 
   }
   
-  
   componentDidMount(){
     console.log('mounted')
     this.getData()
+    // this.getGiphy()
   }
 
   getData(){
@@ -25,21 +26,15 @@ class ShowPage extends React.Component {
       .catch(err => console.log(err.message))
   }
   
-  
   render() {
     //  MUST ALWAYS HAVE THE RETURN NULL BEFORE TRYING TO RETRIEVE THINGS INSIDE THE OBJECT:
     if (!this.state.weather) return null
-    console.log(this.state.weather.weather[0].description)
-    console.log(this.state.weather)
-    console.log(this.state.weather.main.temp)
     const { weather } = this.state
     return (
       <>
       <h1>The weather in {weather.name} is</h1>
-      <div>
-        <p>{Math.round(weather.main.temp_min - 273.15)}°C - {Math.round(weather.main.temp_max - 273.15)}°C</p>
-        <p>{weather.weather[0].description}</p>
-      </div>
+      <p>{Math.round(weather.main.temp_min - 273.15)}°C - {Math.round(weather.main.temp_max - 273.15)}°C</p>
+      <div className={weather.weather[0].main}>{weather.weather[0].description}</div>
       </>
     )
   }

@@ -1,8 +1,5 @@
 import React from 'react'
-import axios from 'axios'
 
-
-import ShowPage from './ShowPage'
 
 class Home extends React.Component {
   constructor() {
@@ -25,6 +22,12 @@ class Home extends React.Component {
     e.preventDefault()
     // this.getData()
     this.props.history.push(`/weather/${this.state.city}`)
+  }
+
+  handleSubmitLondon(e) {
+    e.preventDefault()
+    // this.getData()
+    this.props.history.push('/weather/London')
   }
 
   componentDidMount(){
@@ -52,6 +55,7 @@ class Home extends React.Component {
         placeholder="Type in your city" 
       />
       <button onClick={(e) => this.handleSubmit(e)} type="submit">Show me the weather</button>
+      <button onClick={(e) => this.handleSubmitLondon(e)} type="submit">I'm a Londoner</button>
       </>
     )
   }
