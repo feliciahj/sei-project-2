@@ -17,12 +17,20 @@ class London extends React.Component {
   componentDidMount(){
     this.getData()
     this.getTubeData()
+    this.getDataFive()
   }
 
   getData(){
     const token = process.env.REACT_APP_WEATHER_ACCESS_KEY
     axios.get(`http://api.openweathermap.org/data/2.5/weather?q=London&APPID=${token}`)
       .then(res => this.setState({ weather: res.data }))
+      .catch(err => this.setState({ error: err.message }))
+  }
+
+  getDataFive(){
+    const token = process.env.REACT_APP_WEATHER_ACCESS_KEY
+    axios.get(`http://api.openweathermap.org/data/2.5/forecast?id=2643743&APPID=${token}`)
+      .then(res => this.setState(console.log(res.data)))
       .catch(err => this.setState({ error: err.message }))
   }
 
@@ -42,7 +50,7 @@ class London extends React.Component {
   }
   
   render() {
-    const date = new Date(1570752000 * 1000)
+    const date = new Date(1570784400 * 1000)
     console.log(date)
     //  MUST ALWAYS HAVE THE RETURN NULL BEFORE TRYING TO RETRIEVE THINGS INSIDE THE OBJECT:
     if (!this.state.weather) return null
