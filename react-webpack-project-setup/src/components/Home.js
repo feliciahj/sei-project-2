@@ -1,12 +1,16 @@
 import React from 'react'
 import axios from 'axios'
 
+
+import ShowPage from './ShowPage'
+
 class Home extends React.Component {
   constructor() {
     super()
 
     this.state = {
-      city: ''
+      city: '',
+      weatherData: {}
     }
     this.handleChange = this.handleChange.bind(this)
   }
@@ -19,19 +23,21 @@ class Home extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    this.getData()
+    // this.getData()
+    this.props.history.push(`/weather/${this.state.city}`)
   }
 
   componentDidMount(){
     console.log('mounted')
   }
 
-  getData(){
-    const token = process.env.REACT_APP_WEATHER_ACCESS_KEY
-    axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&APPID=${token}`)
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err))
-  }
+  // Refactored into ShowPage:
+  // getData(){
+  //   const token = process.env.REACT_APP_WEATHER_ACCESS_KEY
+  //   axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&APPID=${token}`)
+  //     .then(res => this.setState({ weatherData: res.data }))
+  //     .catch(err => console.log(err.message))
+  // }
 
   // Used to test that the API was working on change:
   // componentDidUpdate(){
