@@ -1,52 +1,22 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
-import axios from 'axios'
+import { BrowserRouter, Switch, Route } from 'react-router-dom'
 
-class App extends React.Component {
-  constructor() {
-    super()
+import Home from './components/Home'
+import ShowPage from './components/ShowPage'
 
-    this.state = {
-      city: ''
-    }
-    this.handleChange = this.handleChange.bind(this)
-  }
-
-  handleChange(e) {
-    const city = e.target.value
-    console.log(city)
-    this.setState({ city })
-  }
-
-  componentDidMount(){
-    console.log('mounted')
-  }
-
-  getData(){
-    const token = process.env.REACT_APP_WEATHER_ACCESS_KEY
-    axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&APPID=${token}`)
-      .then(res => console.log(res.data))
-      .catch(err => console.log(err))
-  }
-
-  componentDidUpdate(){
-    this.getData()
-  }
-
-
-  render() {
+const App = () => (
+  <BrowserRouter>
+    <main>
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/weather" component={ShowPage} />
+      </Switch>
+    </main>
+  </BrowserRouter>
+)
   
-    return (
-      <>
-      <input onChange={(e) => this.handleChange(e)}
-        placeholder="Type in your city" 
-      />
-      <button type="submit">Show me the weather</button>
-      </>
-    )
-  }
-}
-
+ 
 ReactDOM.render(
   <App />,
   document.getElementById('root')
