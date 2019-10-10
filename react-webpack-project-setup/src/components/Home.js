@@ -20,32 +20,17 @@ class Home extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
-    // this.getData()
     this.props.history.push(`/weather/${this.state.city}`)
   }
 
   handleSubmitLondon(e) {
     e.preventDefault()
-    // this.getData()
     this.props.history.push('/weather/London')
   }
 
   componentDidMount(){
     console.log('mounted')
   }
-
-  // Refactored into ShowPage:
-  // getData(){
-  //   const token = process.env.REACT_APP_WEATHER_ACCESS_KEY
-  //   axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${this.state.city}&APPID=${token}`)
-  //     .then(res => this.setState({ weatherData: res.data }))
-  //     .catch(err => console.log(err.message))
-  // }
-
-  // Used to test that the API was working on change:
-  // componentDidUpdate(){
-  //   this.getData()
-  // }
 
   render() {
   
@@ -55,7 +40,7 @@ class Home extends React.Component {
         placeholder="Type in your city" 
       />
       <button onClick={(e) => this.handleSubmit(e)} type="submit">Show me the weather</button>
-      <button onClick={(e) => this.handleSubmitLondon(e)} type="submit">I'm a Londoner</button>
+      <button onClick={(e) => this.handleSubmitLondon(e)} type="submit">I am a Londoner</button>
       </>
     )
   }

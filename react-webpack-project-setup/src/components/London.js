@@ -7,25 +7,43 @@ class London extends React.Component {
     super()
 
     this.state = {
-      weather: null
+      weather: null,
+      lines: null,
+      error: null
     }
 
   }
-  
+
   componentDidMount(){
-    console.log('mounted')
     this.getData()
-    // this.getGiphy()
+    this.getTubeData()
   }
 
   getData(){
     const token = process.env.REACT_APP_WEATHER_ACCESS_KEY
     axios.get(`http://api.openweathermap.org/data/2.5/weather?q=London&APPID=${token}`)
       .then(res => this.setState({ weather: res.data }))
-      .catch(err => console.log(err.message))
+      .catch(err => this.setState({ error: err.message }))
+  }
+
+  getTubeData() {
+    axios.get('https://api.tfl.gov.uk/line/mode/tube/status')
+      .then(res => this.setState({ lines: res.data }))
+      .catch(err => this.setState({ error: err.message }))
+  }
+
+  componentDidUpdate() {
+    setInterval(() => {
+      this.getData()
+      this.getTubeData
+      console.log('updated')
+      // updates every 10 min:
+    },600000)
   }
   
   render() {
+    const date = new Date(1570752000 * 1000)
+    console.log(date)
     //  MUST ALWAYS HAVE THE RETURN NULL BEFORE TRYING TO RETRIEVE THINGS INSIDE THE OBJECT:
     if (!this.state.weather) return null
     const { weather } = this.state
@@ -34,60 +52,19 @@ class London extends React.Component {
       <h1>The weather in {weather.name} is</h1>
       <p>{Math.round(weather.main.temp_min - 273.15)}°C - {Math.round(weather.main.temp_max - 273.15)}°C</p>
       <div className={weather.weather[0].main}>{weather.weather[0].description}</div>
+      <ul>
+        {this.state.lines &&
+        this.state.lines.map(line => {
+          return <li key={line.id}>
+            <p>{line.name}</p>
+            <p>{line.lineStatuses[0].statusSeverityDescription}</p>
+          </li>
+        })
+        }
+      </ul>
       </>
     )
   }
 }
 
 export default London
-
-
-
-// this.state = {
-//   lines: null,
-//   error: null
-// }
-// this.handleClick = this.handleClick.bind(this)
-// this.getData = this.getData.bind(this)
-// }
-
-// handleClick() {
-// this.render()
-// this.componentDidUpdate
-// }
-
-// componentDidMount() {
-// this.getData()
-   
-// }
-
-// getData() {
-// console.log('I have mounted')
-// axios.get('https://api.tfl.gov.uk/line/mode/tube/status')
-//   .then(res => this.setState({ lines: res.data }))
-//   .catch(err => this.setState({ error: err.message }))
-// }
-
-// componentDidUpdate() {
-
-// }
-
-// render() {
-// console.log('I have rendered', this.state.lines)
-// return (
-//   <div>
-//     <button onClick={this.handleClick}>Refresh</button>
-//     <ul>
-//       {this.state.lines &&
-//         this.state.lines.map(line => {
-//           return <li key={line.id}>
-//             <p>{line.name}</p>
-//             <p>{line.lineStatuses[0].statusSeverityDescription}</p>
-//           </li>
-//         })
-//       }
-//     </ul>
-//   </div>
-// )
-// }
-// }
