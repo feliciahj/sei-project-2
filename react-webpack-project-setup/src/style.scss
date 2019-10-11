@@ -1,3 +1,127 @@
+
+h1 {
+  background-color: pink;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 50px;
+}
+
+.subtitle {
+  background-color: rgb(198, 192, 255);
+  display: flex;
+  align-items: center;
+  justify-content: center;  
+  margin: 50px;
+}
+
+.home {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 30px;
+  input.input {
+    margin: 20px;
+    padding: 20px;
+  }
+  .button.button.city {
+    margin: 20px;
+  }
+}
+
+.london {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  background-color: greenyellow;
+  align-items: center;
+  justify-content: center;
+}
+
+.top {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(255, 47, 238);
+  align-items: center;
+  justify-content: center;
+}
+
+.weather {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(47, 255, 47);
+  align-items: center;
+  justify-content: center;
+  h3 {
+    padding: 0;
+    margin: 0;
+    font-size: 15px;
+  }
+  p {
+    padding: 0;
+    margin: 0; 
+  }
+}
+
+.bottom {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(47, 255, 255);
+  align-items: center;
+  justify-content: center;
+}
+
+.news {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(241, 255, 47);
+  align-items: center;
+  justify-content: center;
+  p {
+    font-size: 15px;
+    padding: 0;
+    margin: 0;
+  }
+  li {
+    padding: 0;
+    margin: 0px;
+  }
+}
+
+h2 {
+  padding: 0;
+  margin: 10px;
+  font-size: 25px;;
+}
+
+.buttons {
+  display: flex;
+  flex-direction: row;
+  background-color: rgb(255, 78, 47);
+}
+
+.animal {
+  display: flex;
+  flex-direction: column;
+  background-color: rgb(241, 255, 47);
+  align-items: center;
+  justify-content: center;
+  div {
+    display: flex;
+    flex-direction: column;
+    background-color: rgb(241, 255, 47);
+    align-items: center;
+    justify-content: center;
+  }
+}
+
 ul { 
   list-style-type: none; 
 }
@@ -6,56 +130,56 @@ ul {
  background-image: url(https://media.giphy.com/media/B7ppUExX92PjW/giphy.gif);
  background-size: contain;
  background-repeat: no-repeat;
- height: 300px;
- width: 600px;
+ height: 200px;
+ width: 400px;
 }
 
  .Drizzle {
   background-image: url(https://media.giphy.com/media/gTd5kCiMFTEgE/giphy.gif);
   background-size: contain;
   background-repeat: no-repeat;
-  height: 300px;
-  width: 600px;
+  height: 200px;
+  width: 400px;
  }
 
  .Rain {
   background-image: url(https://media3.giphy.com/media/DMZfhaUjXogtG/giphy.gif?cid=790b7611366e9667948cf28614ee0c6a939ad78d2e349b52&rid=giphy.gif);
   background-size: contain;
   background-repeat: no-repeat;
-  height: 300px;
-  width: 600px;
+  height: 200px;
+  width: 400px;
  }
 
  .Clear {
   background-image: url(https://media.giphy.com/media/YohvjRwIzXHt6SL6fX/giphy.gif);
   background-size: contain;
   background-repeat: no-repeat;
-  height: 300px;
- width: 600px;
+  height: 200px;
+  width: 400px;
  }
 
  .Snow {
   background-image: url(https://media.giphy.com/media/jKIP9X4OvtyBW/giphy.gif);
   background-size: contain;
   background-repeat: no-repeat;
-  height: 300px;
-  width: 600px;
+  height: 200px;
+  width: 400px;
  }
 
  .Clouds {
   background-image: url(https://media.giphy.com/media/oqxHGqMrKmeVG/giphy.gif);
   background-size: contain;
   background-repeat: no-repeat;
-  height: 300px;
- width: 600px;
+  height: 200px;
+  width: 400px;
  }
 
  .Mist, .Smoke, .Haze, .Dust, .Fog, .Sand, .Ash, .Squall, .Tornado {
   background-image: url(https://media.giphy.com/media/6P0aYkSgdVipy/giphy.gif);
   background-size: contain;
   background-repeat: no-repeat;
-  height: 300px;
- width: 600px;
+  height: 200px;
+  width: 400px;
  }
 
 

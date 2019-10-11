@@ -57,15 +57,25 @@ class ShowPage extends React.Component {
     const { weather, news } = this.state
     return (
       <>
-      <h2>The weather in {weather.name} is</h2>
-      <p>{Math.round(weather.main.temp_min - 273.15)}°C - {Math.round(weather.main.temp_max - 273.15)}°C</p>
-      <div className={weather.weather[0].main}>{weather.weather[0].description}</div>
-      <button onClick={this.handleClick}>Refresh</button>
-      <button onClick={this.handleClickCity}>Choose a Different City</button>
-      <div>
-        <h2>News</h2>
-        <ul>
-          {news &&
+      <section className="main">
+        <section className="top">
+          <section className="weather">
+            <h2>The weather in {weather.name} is:</h2>
+            <h3>The tempterature will be between:</h3>
+            <p>{Math.round(weather.main.temp_min - 273.15)}°C - {Math.round(weather.main.temp_max - 273.15)}°C</p>
+            <div className="animal">
+              <div className={weather.weather[0].main}>{weather.weather[0].description}</div>
+            </div>
+          </section>
+          <section className="random">
+            <h2>Random fact of the day</h2>
+          </section>
+        </section>
+        <section className="bottom">
+          <div className="news">
+            <h2>News</h2>
+            <ul>
+              {news &&
           news.filter((article, index) => (index < 5)).map(article => {
             return <li key={article.url}>
               <p src={article.url}>{article.title}</p>
@@ -74,8 +84,14 @@ class ShowPage extends React.Component {
               </a>
             </li>
           })}
-        </ul>
-      </div>
+            </ul>
+          </div>
+          <div className="buttons">
+            <button onClick={this.handleClick}>Refresh</button>
+            <button onClick={this.handleClickCity}>Choose a Different City</button>
+          </div>
+        </section>
+      </section>
       </>
     )
   }

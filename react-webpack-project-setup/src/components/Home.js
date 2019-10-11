@@ -1,4 +1,5 @@
 import React from 'react'
+import '../../src/style.scss'
 
 
 class Home extends React.Component {
@@ -36,14 +37,24 @@ class Home extends React.Component {
   
     return (
       <>
-      <input onChange={(e) => this.handleChange(e)}
-        placeholder="Type in your city" 
-      />
-      <button onClick={(e) => this.handleSubmit(e)} type="submit">Show me the weather</button>
-      <button onClick={(e) => this.handleSubmitLondon(e)} type="submit">I am a Londoner</button>
+      <div className="container">
+        <h1 className="title is-1">Hello</h1>
+        <p className="subtitle is-2 has-text-centered">Where do you live?</p>
+      </div>
+      <section className="home">
+        <input className="input" onChange={(e) => this.handleChange(e)}
+          placeholder="Type in your city" 
+        />
+        <button className="button city" onClick={(e) => this.handleSubmit(e)} type="submit">Show me the weather</button>
+      </section>
+      <div className="london">
+        <button className="button london" onClick={(e) => this.handleSubmitLondon(e)} type="submit">HEY- I'M A LONDONER</button>
+      </div>
       </>
     )
   }
 }
 
 export default Home
+
+// <img src="https://fontmeme.com/permalink/191011/5f852fa065a9a53884313ad8d9ee779c.png"></img>
