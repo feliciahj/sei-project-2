@@ -53,6 +53,9 @@ class Home extends React.Component {
           <div className="london">
             <button className="button london" onClick={(e) => this.handleSubmitLondon(e)} type="submit">HEY- I AM A LONDONER</button>
           </div>
+          <div className="flying">
+            <img className="catGif" src="http://giphygifs.s3.amazonaws.com/media/sIIhZliB2McAo/giphy.gif"></img>
+          </div>
       </>
     )
   }

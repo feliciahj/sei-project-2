@@ -29,7 +29,7 @@ class Greeting extends React.Component {
     if (currentTime >= 6 && currentTime < 12) {
       greeting = 'Good Morning'
     } else if (currentTime >= 12 && currentTime < 18) {
-      greeting = 'Good Day'
+      greeting = 'Good Afternoon'
     } else if (currentTime >= 18) {
       greeting = 'Good Evening'
     } else greeting = 'Good Night'
@@ -38,7 +38,7 @@ class Greeting extends React.Component {
   }
 
   getPretty() {
-    const prettyArray = ['Munchkin', 'Honey', 'Cookie', 'Darling' ]
+    const prettyArray = ['Munchkin', 'Sausage', 'Piglet', 'Cookie', 'Beautiful', 'Pumpkin', 'Little cabbage', 'My flea', 'Honey', 'Cookie', 'Darling' ]
     const prettyYou = prettyArray[Math.floor(Math.random() * (prettyArray.length))]
     this.setState({ prettyYou })
   }

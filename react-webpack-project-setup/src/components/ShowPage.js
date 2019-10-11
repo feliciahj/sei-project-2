@@ -10,7 +10,8 @@ class ShowPage extends React.Component {
 
     this.state = {
       weather: null,
-      error: null, 
+      errorData: null, 
+      errorNews: null,
       news: null
     }
     this.handleClick = this.handleClick.bind(this)
@@ -39,7 +40,7 @@ class ShowPage extends React.Component {
     const city = this.props.match.params.id
     axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${token}`)
       .then(res => this.setState({ weather: res.data }))
-      .catch(err => this.setState({ error: err.message }))
+      .catch(err => this.setState({ errorData: err }))
   }
 
   getNews() {
@@ -47,17 +48,21 @@ class ShowPage extends React.Component {
     const country = this.state.weather.sys.country
     axios.get(`https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${tokenNews}`)
       .then(res => this.setState({ news: res.data.articles }))
-      .catch(err => this.setState({ error: err.message }))
+      .catch(err => this.setState({ errorNews: err }))
   }
   
   render() {
     //  MUST ALWAYS HAVE THE RETURN NULL BEFORE TRYING TO RETRIEVE THINGS INSIDE THE OBJECT:
     if (!this.state.weather) return null
-    const { weather, news } = this.state
+    const { weather, news, errorData } = this.state
+    console.log(errorData)
     return (
       <>
       <section className="main">
         <section className="top">
+          {errorData &&
+            <h1>This City Does not Exist</h1>
+          }
           <section className="weather">
             <h2>The weather in {weather.name} is:</h2>
             <h3>The tempterature will be between:</h3>
@@ -72,17 +77,19 @@ class ShowPage extends React.Component {
         </section>
         <section className="bottom">
           <div className="news">
+            {!news &&
             <h2>News</h2>
+            }
             <ul>
               {news &&
-          news.filter((article, index) => (index < 5)).map(article => {
-            return <li key={article.url}>
-              <p src={article.url}>{article.title}</p>
-              <a href={article.url}>
-                <p>Read Full Story</p>
-              </a>
-            </li>
-          })}
+            news.filter((article, index) => (index < 5)).map(article => {
+              return <li key={article.url}>
+                <p src={article.url}>{article.title}</p>
+                <a href={article.url}>
+                  <p>Read Full Story</p>
+                </a>
+              </li>
+            })}
             </ul>
           </div>
           <div className="buttons">
