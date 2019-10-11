@@ -1,5 +1,7 @@
 import React from 'react'
 import axios from 'axios'
+
+import Quote from './Quote'
 import '../../src/style.scss'
 
 class ShowPage extends React.Component {
@@ -17,8 +19,7 @@ class ShowPage extends React.Component {
   }
   
   handleClick() {
-    this.render()
-    this.componentDidUpdate()
+    location.reload()
   }
 
   handleClickCity() {
@@ -26,7 +27,6 @@ class ShowPage extends React.Component {
   }
   
   componentDidMount() {
-    console.log('mounted')
     this.getData()
   }
 
@@ -45,7 +45,6 @@ class ShowPage extends React.Component {
   getNews() {
     const tokenNews = process.env.REACT_APP_NEWS_ACCESS_KEY
     const country = this.state.weather.sys.country
-    console.log(country)
     axios.get(`https://newsapi.org/v2/top-headlines?country=${country}&apiKey=${tokenNews}`)
       .then(res => this.setState({ news: res.data.articles }))
       .catch(err => this.setState({ error: err.message }))
@@ -68,7 +67,7 @@ class ShowPage extends React.Component {
             </div>
           </section>
           <section className="random">
-            <h2>Random fact of the day</h2>
+            <Quote />
           </section>
         </section>
         <section className="bottom">
@@ -87,8 +86,8 @@ class ShowPage extends React.Component {
             </ul>
           </div>
           <div className="buttons">
-            <button onClick={this.handleClick}>Refresh</button>
-            <button onClick={this.handleClickCity}>Choose a Different City</button>
+            <button className="buttons" onClick={this.handleClick}>Refresh</button>
+            <button className="buttons new" onClick={this.handleClickCity}>Choose a Different City</button>
           </div>
         </section>
       </section>

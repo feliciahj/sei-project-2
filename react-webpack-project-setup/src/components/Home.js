@@ -1,5 +1,7 @@
 import React from 'react'
+
 import '../../src/style.scss'
+import Greeting from './Greeting'
 
 
 class Home extends React.Component {
@@ -7,7 +9,7 @@ class Home extends React.Component {
     super()
 
     this.state = {
-      city: '',
+      city: null,
       weatherData: {}
     }
     this.handleChange = this.handleChange.bind(this)
@@ -21,6 +23,7 @@ class Home extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault()
+    if (!this.state.city) return null
     this.props.history.push(`/weather/${this.state.city}`)
   }
 
@@ -37,19 +40,19 @@ class Home extends React.Component {
   
     return (
       <>
-      <div className="container">
-        <h1 className="title is-1">Hello</h1>
-        <p className="subtitle is-2 has-text-centered">Where do you live?</p>
-      </div>
-      <section className="home">
-        <input className="input" onChange={(e) => this.handleChange(e)}
-          placeholder="Type in your city" 
-        />
-        <button className="button city" onClick={(e) => this.handleSubmit(e)} type="submit">Show me the weather</button>
-      </section>
-      <div className="london">
-        <button className="button london" onClick={(e) => this.handleSubmitLondon(e)} type="submit">HEY- I'M A LONDONER</button>
-      </div>
+          <div className="container">
+            <Greeting />
+            <p className="subtitle is-2 has-text-centered">Where do you live?</p>
+          </div>
+          <section className="home">
+            <input className="input" onChange={(e) => this.handleChange(e)}
+              placeholder="Type in your city" 
+            />
+            <button className="button city" onClick={(e) => this.handleSubmit(e)} type="submit">LET'S GO!</button>
+          </section>
+          <div className="london">
+            <button className="button london" onClick={(e) => this.handleSubmitLondon(e)} type="submit">HEY- I AM A LONDONER</button>
+          </div>
       </>
     )
   }
@@ -58,3 +61,12 @@ class Home extends React.Component {
 export default Home
 
 // <img src="https://fontmeme.com/permalink/191011/5f852fa065a9a53884313ad8d9ee779c.png"></img>
+//onKeyPress={this.handleSubmit}
+
+
+// onKeyPress={(e) => this.handleKeyPress(e)}
+// handleKeyPress(e) {
+//   if (!this.state.city) return null
+//   if (e.key === 'Enter') 
+//     this.props.history.push(`/weather/${this.state.city}`)
+// }

@@ -1,10 +1,24 @@
 
+html {
+  background: linear-gradient(215deg, rgba(255,47,238,1) 0%, rgba(241,255,47,1) 50%, rgba(47,255,47,1) 100%);
+  width: 100vw;
+  height: 100vh;
+}
+
+main {
+  font-family: monospace;
+  
+}
+
 h1 {
+  font-family: monospace;
   background-color: pink;
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 50px;
+  text-transform: uppercase;
+  font-size: 60px;
 }
 
 .subtitle {
@@ -13,6 +27,8 @@ h1 {
   align-items: center;
   justify-content: center;  
   margin: 50px;
+  text-transform: uppercase;
+  font-size: 30px;
 }
 
 .home {
@@ -25,9 +41,15 @@ h1 {
   input.input {
     margin: 20px;
     padding: 20px;
+    font-family: monospace;
   }
   .button.button.city {
     margin: 20px;
+    font-family: monospace;
+    background-color: rgb(255, 78, 47);
+    font-family: monospace;
+    text-transform: uppercase;
+    font-size: 15px;
   }
 }
 
@@ -35,12 +57,17 @@ h1 {
   display: flex;
   align-items: center;
   justify-content: center;
+  button {
+    font-family: monospace;
+    background-color: rgb(255, 78, 47);
+    text-transform: uppercase;
+    font-size: 15px;
+  }
 }
 
 .main {
   display: flex;
   flex-direction: column;
-  background-color: greenyellow;
   align-items: center;
   justify-content: center;
 }
@@ -48,7 +75,6 @@ h1 {
 .top {
   display: flex;
   flex-direction: row;
-  background-color: rgb(255, 47, 238);
   align-items: center;
   justify-content: center;
 }
@@ -56,13 +82,13 @@ h1 {
 .weather {
   display: flex;
   flex-direction: column;
-  background-color: rgb(47, 255, 47);
   align-items: center;
   justify-content: center;
   h3 {
     padding: 0;
     margin: 0;
     font-size: 15px;
+    text-transform: uppercase;
   }
   p {
     padding: 0;
@@ -70,10 +96,22 @@ h1 {
   }
 }
 
+.random {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.fact {
+  font-size: 15px;
+  justify-content: center;
+  font-style: italic;
+}
+
 .bottom {
   display: flex;
   flex-direction: column;
-  background-color: rgb(47, 255, 255);
   align-items: center;
   justify-content: center;
 }
@@ -98,27 +136,36 @@ h1 {
 h2 {
   padding: 0;
   margin: 10px;
-  font-size: 25px;;
+  font-size: 25px;
+  text-transform: uppercase;
 }
 
 .buttons {
   display: flex;
   flex-direction: row;
   background-color: rgb(255, 78, 47);
+  font-family: monospace;
+  text-transform: uppercase;
+  font-size: 15px;
+  .new {
+    background-color: rgb(47, 61, 255);
+  }
 }
 
 .animal {
   display: flex;
   flex-direction: column;
-  background-color: rgb(241, 255, 47);
   align-items: center;
   justify-content: center;
   div {
     display: flex;
     flex-direction: column;
-    background-color: rgb(241, 255, 47);
     align-items: center;
     justify-content: center;
+    color: rgb(255, 47, 238);
+    font-size: 25px;
+    font-weight: 900;
+    text-transform: uppercase;
   }
 }
 
@@ -180,6 +227,12 @@ ul {
   background-repeat: no-repeat;
   height: 200px;
   width: 400px;
+ }
+
+ .GoodDay {
+  background-image: url('../src/assets/good_afternoon_100.gif');
+  background-size: contain;
+  background-repeat: no-repeat;
  }
 
 
