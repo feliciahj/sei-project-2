@@ -54,15 +54,15 @@ class London extends React.Component {
     console.log(date)
     //  MUST ALWAYS HAVE THE RETURN NULL BEFORE TRYING TO RETRIEVE THINGS INSIDE THE OBJECT:
     if (!this.state.weather) return null
-    const { weather } = this.state
+    const { weather, lines } = this.state
     return (
       <>
       <h1>The weather in {weather.name} is</h1>
       <p>{Math.round(weather.main.temp_min - 273.15)}°C - {Math.round(weather.main.temp_max - 273.15)}°C</p>
       <div className={weather.weather[0].main}>{weather.weather[0].description}</div>
       <ul>
-        {this.state.lines &&
-        this.state.lines.map(line => {
+        {lines &&
+        lines.map(line => {
           return <li key={line.id}>
             <p>{line.name}</p>
             <p>{line.lineStatuses[0].statusSeverityDescription}</p>
