@@ -12,12 +12,17 @@ class ShowPage extends React.Component {
       news: null
     }
     this.handleClick = this.handleClick.bind(this)
+    this.handleClickCity = this.handleClickCity.bind(this)
     this.getData = this.getData.bind(this)
   }
   
   handleClick() {
     this.render()
     this.componentDidUpdate()
+  }
+
+  handleClickCity() {
+    this.props.history.push('/')
   }
   
   componentDidMount() {
@@ -56,13 +61,17 @@ class ShowPage extends React.Component {
       <p>{Math.round(weather.main.temp_min - 273.15)}°C - {Math.round(weather.main.temp_max - 273.15)}°C</p>
       <div className={weather.weather[0].main}>{weather.weather[0].description}</div>
       <button onClick={this.handleClick}>Refresh</button>
+      <button onClick={this.handleClickCity}>Choose a Different City</button>
       <div>
         <h2>News</h2>
         <ul>
           {news &&
           news.filter((article, index) => (index < 5)).map(article => {
             return <li key={article.url}>
-              <p>{article.title}</p>
+              <p src={article.url}>{article.title}</p>
+              <a href={article.url}>
+                <p>Read Full Story</p>
+              </a>
             </li>
           })}
         </ul>
