@@ -31,15 +31,15 @@ class ShowPage extends React.Component {
     this.getData()
   }
 
-  componentDidUpdate() {
-    if (!this.state.news && this.state.weather) return this.getNews()
-  }
+  // componentDidUpdate() {
+  //   if (!this.state.news && this.state.weather) return this.getNews()
+  // }
 
   getData() {
     const token = process.env.REACT_APP_WEATHER_ACCESS_KEY
     const city = this.props.match.params.id
     axios.get(`http://api.openweathermap.org/data/2.5/weather?q=${city}&APPID=${token}`)
-      .then(res => this.setState({ weather: res.data }))
+      .then(res => this.setState({ weather: res.data }, this.getNews))
       .catch(err => this.setState({ errorData: err }))
   }
 
@@ -55,7 +55,7 @@ class ShowPage extends React.Component {
     //  MUST ALWAYS HAVE THE RETURN NULL BEFORE TRYING TO RETRIEVE THINGS INSIDE THE OBJECT:
     if (!this.state.weather) return null
     const { weather, news, errorData } = this.state
-    console.log(errorData)
+    console.log(news)
     return (
       <>
       <section className="main">
@@ -77,8 +77,8 @@ class ShowPage extends React.Component {
         </section>
         <section className="bottom">
           <div className="news">
-            {!news &&
-            <h2>News</h2>
+            {news &&
+            <h2>Local News</h2>
             }
             <ul>
               {news &&

@@ -27,7 +27,7 @@ class Quote extends React.Component {
     const { fact } = this.state
 
     return (
-      <p className="fact">"{fact}"</p>
+      <p className="fact">{fact} <br/> - Random Fact</p>
     )
   }
 }
