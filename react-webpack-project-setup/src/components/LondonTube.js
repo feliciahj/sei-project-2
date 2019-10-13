@@ -26,7 +26,7 @@ class LondonTube extends React.Component {
     const { lines } = this.state
     return (
       <div className="tube">
-        <h2 className="tubeLine">London Tube</h2>
+        <h2 className="tubeLine">Tube status</h2>
         <ul>
           {lines &&
         lines.map(line => {

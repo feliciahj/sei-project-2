@@ -55,9 +55,9 @@ class ShowPage extends React.Component {
     const { weather, news, errorData } = this.state
     return (
       <>
-      <section className="main">
+      <section className="mainShow">
         {errorData &&
-            <h1>This City was not found</h1>
+            <h1>C&apos;mon, nobody lives there!</h1>
         }
 
         {weather &&
@@ -70,7 +70,10 @@ class ShowPage extends React.Component {
               <div className={weather.weather[0].main}>{weather.weather[0].description}</div>
             </div>
           </section>
+          
           <section className="random">
+            <h2>Your fun fact for the day:</h2>
+            <div className="space"></div>
             <Quote />
           </section>
         </section>
@@ -95,19 +98,17 @@ class ShowPage extends React.Component {
           { weather && weather.name === 'London' &&
             <LondonTube />
           }
-          <div className="buttons">
-            {weather &&
-            <RefreshButton />
-            }
-            <Link to={'/'} >
-              <button className="buttons new">
-              Choose a Different City
-              </button> 
-            </Link>
-          </div>
-
         </section>
-
+        <section className="buttons">
+          {weather &&
+            <RefreshButton />
+          }
+          <Link to={'/'} >
+            <button className="newCity">
+              Choose a Different City
+            </button> 
+          </Link>
+        </section>
       </section>
       </>
     )

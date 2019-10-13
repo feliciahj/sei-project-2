@@ -38,7 +38,7 @@ class Greeting extends React.Component {
   }
 
   getPretty() {
-    const prettyArray = ['  Munchkin', '  Sausage', '  Piglet', '  Cookie', '  Beautiful', '  Pumpkin', '  Little troll', '  Little cabbage', '  My flea', '  Honey', '  Cookie', '  Darling' ]
+    const prettyArray = ['  Munchkin', '  Sausage', '  Puppet', '  Piglet', '  Cookie', '  Beautiful', '  Pumpkin', '  Little troll', '  Little cabbage', '  My flea', '  Honey', '  Cookie', '  Darling' ]
     const prettyYou = prettyArray[Math.floor(Math.random() * (prettyArray.length))]
     this.setState({ prettyYou })
   }

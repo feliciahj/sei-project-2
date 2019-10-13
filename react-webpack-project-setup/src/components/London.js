@@ -64,8 +64,8 @@ class London extends React.Component {
         {lines &&
         lines.map(line => {
           return <li key={line.id}>
-            <p>{line.name}</p>
-            <p>{line.lineStatuses[0].statusSeverityDescription}</p>
+            <p className="name">{line.name}</p>
+            <p className="status">{line.lineStatuses[0].statusSeverityDescription}</p>
           </li>
         })
         }

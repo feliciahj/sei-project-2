@@ -15,7 +15,7 @@ class RefreshButton extends React.Component {
 
   render() {
     return (
-      <button className="buttons" onClick={this.handleClick}>Refresh</button>
+      <button className="refresh" onClick={this.handleClick}>Refresh</button>
     )
   }
 }
