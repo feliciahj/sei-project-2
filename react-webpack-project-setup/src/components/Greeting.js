@@ -27,18 +27,18 @@ class Greeting extends React.Component {
     let greeting = ''
 
     if (currentTime >= 6 && currentTime < 12) {
-      greeting = 'Good Morning'
+      greeting = 'Good Morning  '
     } else if (currentTime >= 12 && currentTime < 18) {
-      greeting = 'Good Afternoon'
+      greeting = 'Good Afternoon  '
     } else if (currentTime >= 18) {
-      greeting = 'Good Evening'
-    } else greeting = 'Good Night'
+      greeting = 'Good Evening  '
+    } else greeting = 'Good Night  '
 
     this.setState({ greeting })  
   }
 
   getPretty() {
-    const prettyArray = ['Munchkin', 'Sausage', 'Piglet', 'Cookie', 'Beautiful', 'Pumpkin', 'Little cabbage', 'My flea', 'Honey', 'Cookie', 'Darling' ]
+    const prettyArray = ['  Munchkin', '  Sausage', '  Piglet', '  Cookie', '  Beautiful', '  Pumpkin', '  Little troll', '  Little cabbage', '  My flea', '  Honey', '  Cookie', '  Darling' ]
     const prettyYou = prettyArray[Math.floor(Math.random() * (prettyArray.length))]
     this.setState({ prettyYou })
   }
@@ -47,7 +47,7 @@ class Greeting extends React.Component {
     const { greeting, prettyYou } = this.state
     return (
       <div>
-        <h1 className=''>{greeting} {prettyYou}</h1>
+        <h1 className=''>{greeting}{prettyYou}</h1>
       </div>
     )
   }

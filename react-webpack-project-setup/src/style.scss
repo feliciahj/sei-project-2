@@ -1,34 +1,54 @@
+* {
+  box-sizing: border-box;
+}
+
+$district: rgb(0,115,37);
+$circle: rgb(255,208,0);
+$central: rgb(223,33,17);
+$bakerloo: rgb(138,78,31);
+$metropolitan: rgb(118,10,87);
+$piccadilly: rgb(0,9,171);
+$jubilee: rgb(134,143,152);
+$hammersmith: rgb(216,152,175);
+$northen: rgb(0,0,0);
+$waterloo: rgb(190,233,224);
+$victoria: rgb(0,159,229);
+$tflBlue: rgb(16,59,146);
+$tflgrey: rgb(45,48,57);
 
 html {
-  background: linear-gradient(215deg, rgba(255,47,238,1) 0%, rgba(241,255,47,1) 50%, rgba(47,255,47,1) 100%);
-  width: 100vw;
-  height: 100vh;
+  background-image: url('https://cdn5.vectorstock.com/i/1000x1000/12/44/yellow-sunburst-retro-background-vector-22621244.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 
 main {
-  font-family: monospace;
-  
+ font-family: 'Limelight', cursive;
 }
 
 h1 {
-  font-family: monospace;
-  background-color: pink;
+  font-family: 'Limelight', cursive;
+  color: rgb(255, 0, 255);
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 50px;
   text-transform: uppercase;
   font-size: 60px;
+  border-style: none none dotted none;
+  border-width: 5px;
+  border-color: rgb(255, 0, 255);
 }
 
 .subtitle {
-  background-color: rgb(198, 192, 255);
+  font-family: 'Monoton', cursive;
+  color: rgb(88, 39, 221);
   display: flex;
   align-items: center;
   justify-content: center;  
-  margin: 50px;
+  margin: 20px;
   text-transform: uppercase;
-  font-size: 30px;
+  font-size: 35px;
 }
 
 .home {
@@ -37,34 +57,75 @@ h1 {
   flex-wrap: wrap;
   align-items: center;
   justify-content: center;
-  margin: 30px;
+  margin: 15px;
   input.input {
     margin: 20px;
-    padding: 20px;
-    font-family: monospace;
-    font-size: 15px;
+    padding: 12px;
+    font-family: 'Limelight', cursive;
+    color: rgb(58, 221, 8);
+    font-size: 18px;
+    border-style: dotted;
+    border-width: 5px;
+    border-color: rgb(61, 247, 4);
+    background-color: transparent;
   }
   .button.button.city {
     margin: 20px;
+    padding: 12px;
     font-family: monospace;
-    background-color: rgb(255, 78, 47);
-    font-family: monospace;
+    background-color: transparent;
+    font-family: 'Limelight', cursive;
+    color: rgb(58, 221, 8);
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 18px;
+    border-style: dotted;
+    border-width: 5px;
+    border-color: rgb(61, 247, 4);
   }
+}
+
+Link {
+  text-decoration: none;
 }
 
 .london {
   display: flex;
   align-items: center;
   justify-content: center;
-  button {
+  text-decoration: none;
+  .button.button.london {
+    margin: 20px;
+    padding: 12px;
     font-family: monospace;
-    background-color: rgb(255, 78, 47);
+    background-color: transparent;
+    font-family: 'Limelight', cursive;
+    color: rgb(58, 221, 8);
     text-transform: uppercase;
-    font-size: 15px;
+    font-size: 25px;
+    border-style: dotted;
+    border-width: 5px;
+    border-color: rgb(61, 247, 4);
   }
 }
+
+.flying {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .catGif{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  margin: 20px;
+  height: 200px;
+  width: 300px;
+  border-style: dotted;
+  border-width: 5px;
+  border-color: rgb(255, 0, 255);
+  }
+ }
 
 .main {
   display: flex;
@@ -137,15 +198,16 @@ h1 {
 h2 {
   padding: 0;
   margin: 10px;
-  font-size: 25px;
+  font-size: 30px;
   text-transform: uppercase;
+  font-family: 'Limelight', cursive;
 }
 
 .buttons {
   display: flex;
   flex-direction: row;
-  background-color: rgb(255, 78, 47);
-  font-family: monospace;
+  // background-color: rgb(255, 78, 47);
+  font-family: 'Limelight', cursive;
   text-transform: uppercase;
   font-size: 15px;
   .new {
@@ -180,27 +242,12 @@ ul {
   align-items: center;
   justify-content: center;
   button {
-    font-family: monospace;
-    background-color: rgb(255, 78, 47);
+    font-family: 'Limelight', cursive;
+    // background-color: rgb(255, 78, 47);
     text-transform: uppercase;
     font-size: 15px;
   }
 }
-.flying {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  .catGif{
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  align-items: center;
-  justify-content: center;
-  margin: 20px;
-  height: 200px;
-  width: 300px;
-  }
- }
 
 .Thunderstorm {
  background-image: url(https://media.giphy.com/media/B7ppUExX92PjW/giphy.gif);
@@ -258,10 +305,74 @@ ul {
   width: 400px;
  }
 
- .GoodDay {
-  background-image: url('../src/assets/good_afternoon_100.gif');
-  background-size: contain;
-  background-repeat: no-repeat;
- }
-
+div .tube {
+  background: $tflgrey;
+  font-family: 'Limelight', cursive;
+  color: white;
+    h2 {
+    background: $tflBlue;
+    color: white;
+    margin: 10px 200px;
+    padding: 20px;
+    border: solid white;
+   }
+    ul {
+      font-weight: 400;
+    }
+      li:nth-child(1) {
+        background: $bakerloo;
+        padding: 5px;
+        border: solid white;
+      }
+      li:nth-child(2) {
+        background: $central;
+        padding: 5px;
+        border: solid white;
+      }
+      li:nth-child(3) {
+        background: $circle;
+        padding: 5px;
+        border: solid white;
+      }
+      li:nth-child(4) {
+        background: $district;
+        padding: 5px;
+        border: solid white;
+      }
+      li:nth-child(5) {
+        background: $hammersmith;
+        padding: 5px;
+        border: solid white;
+      }
+      li:nth-child(6) {
+        background: $jubilee;
+        padding: 5px;
+        border: solid white;
+      }
+      li:nth-child(7) {
+        background: $metropolitan;
+        padding: 5px;
+        border: solid white;
+      }
+      li:nth-child(8) {
+        background: $northen;
+        padding: 5px;
+        border: solid white;
+      }
+      li:nth-child(9) {
+        background: $piccadilly;
+        padding: 5px;
+        border: solid white;
+      }
+      li:nth-child(10) {
+        background: $victoria;
+        padding: 5px;
+        border: solid white;
+      }
+      li:nth-child(11) {
+        background: $waterloo;
+        padding: 5px;
+        border: solid white;
+      }
+    }
 

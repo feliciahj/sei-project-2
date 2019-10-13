@@ -47,13 +47,11 @@ class Home extends React.Component {
               onChange={(e) => this.handleChange(e)}
               placeholder="Type in your city" 
             />
-            <button className="button city" onClick={this.handleSubmit}>LET&apos;S GO!</button>
+            <button className="button city" onClick={this.handleSubmit}>HIT ME!</button>
           </section>
           <div className="london">
-            <Link to={'/weather/London'} >
-              <button className="button london">
-                HEY- I AM A LONDONER
-              </button> 
+            <Link to={'/weather/London'} style={{ textDecoration: 'none' }}>
+              <button className="button london">HEY - I&apos;M A LONDONER!</button> 
             </Link>
           </div>
           <div className="flying">
@@ -65,6 +63,8 @@ class Home extends React.Component {
 }
 
 export default Home
+
+
 
 
 // //BEFORE REFACTORING
